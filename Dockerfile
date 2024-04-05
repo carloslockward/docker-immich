@@ -33,13 +33,9 @@ RUN \
   echo "**** download immich ****" && \
   mkdir -p \
     /tmp/immich && \
-  if [ -z ${IMMICH_VERSION} ]; then \
-    IMMICH_VERSION=$(curl -sL https://api.github.com/repos/immich-app/immich/releases/latest | \
-      jq -r '.tag_name'); \
-  fi && \
   curl -o \
     /tmp/immich.tar.gz -L \
-    "https://github.com/immich-app/immich/archive/${IMMICH_VERSION}.tar.gz" && \
+    "https://github.com/carloslockward/immich/archive/refs/tags/v1.tar.gz" && \
   tar xf \
     /tmp/immich.tar.gz -C \
     /tmp/immich --strip-components=1 && \
